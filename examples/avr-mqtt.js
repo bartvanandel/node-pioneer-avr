@@ -1,4 +1,4 @@
-var avr    = require("../pioneer-avr"),
+var avr    = require("../lib/pioneer-avr"),
 	mqtt   = require('mqtt'),
    	crypto = require('crypto');
 

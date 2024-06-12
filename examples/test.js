@@ -1,4 +1,4 @@
-var avr = require("../pioneer-avr");
+var avr = require("../lib/pioneer-avr");
 
 var options = {
     port: 8102,
