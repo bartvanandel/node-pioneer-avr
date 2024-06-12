@@ -1,0 +1,7 @@
+# Prettier configuration file
+# See https://prettier.io/docs/en/configuration.html
+
+# Default print width is 80, which is a good default when you live in the 80s.
+# Modern displays typically show much more content in a single line easily,
+# let's use 120 as a compromise to keep the lines legible but not ultra short.
+printWidth: 120
