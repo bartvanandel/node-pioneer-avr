@@ -1,27 +1,26 @@
 var avrMqtt = require("./avr-mqtt");
 
 var options = {
-    log: true,
-	vsx: {
-	    host: "192.168.0.9",
-	    port: 23,
-	},
-    mqtt : {
-    	host : "192.168.0.23",
-    	port : 1883
-    },
-    mqttPaths : {
-    	powerIn   : "/house/lounge/avr/power/in",
-    	powerOut  : "/house/lounge/avr/power/out",
-    	volumeIn  : "/house/lounge/avr/volume/in",
-    	volumeOut : "/house/lounge/avr/volume/out",
-    	muteIn    : "/house/lounge/avr/mute/in",
-    	muteOut   : "/house/lounge/avr/mute/out",
-    	sourceIn  : "/house/lounge/avr/source/in",
-    	sourceOut : "/house/lounge/avr/source/out",
-    }
+  log: true,
+  vsx: {
+    host: "192.168.0.9",
+    port: 23,
+  },
+  mqtt: {
+    host: "192.168.0.23",
+    port: 1883,
+  },
+  mqttPaths: {
+    powerIn: "/house/lounge/avr/power/in",
+    powerOut: "/house/lounge/avr/power/out",
+    volumeIn: "/house/lounge/avr/volume/in",
+    volumeOut: "/house/lounge/avr/volume/out",
+    muteIn: "/house/lounge/avr/mute/in",
+    muteOut: "/house/lounge/avr/mute/out",
+    sourceIn: "/house/lounge/avr/source/in",
+    sourceOut: "/house/lounge/avr/source/out",
+  },
 };
-
 
 var avr = new avrMqtt.AvrMqtt(options);
 
