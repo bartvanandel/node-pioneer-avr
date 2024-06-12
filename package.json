@@ -2,6 +2,30 @@
   "name": "pioneer-avr",
   "version": "0.0.1",
   "description": "A node module for controlling a Pioneer AV receiver via IP protocol",
+  "keywords": [
+    "Pioneer",
+    "receiver",
+    "VSX"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bartvanandel/node-pioneer-avr.git"
+  },
+  "license": "BSD",
+  "author": {
+    "name": "Warren Bloomer",
+    "url": "https://github.com/stormboy"
+  },
+  "contributors": [
+    {
+      "name": "mutex1980",
+      "url": "https://github.com/mutex1980"
+    },
+    {
+      "name": "Bart van Andel",
+      "url": "https://github.com/bartvanandel"
+    }
+  ],
   "main": "lib/pioneer-avr.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,16 +33,5 @@
   "dependencies": {
     "mqtt": "*"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mutex1980/node-pioneer-avr.git"
-  },
-  "keywords": [
-    "Pioneer",
-    "receiver",
-    "VSX"
-  ],
-  "author": "Warren Bloomer",
-  "license": "BSD",
   "readmeFilename": "README.md"
 }
