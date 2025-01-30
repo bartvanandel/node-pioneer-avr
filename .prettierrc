@@ -6,6 +6,5 @@
 # let's use 120 as a compromise to keep the lines legible but not ultra short.
 printWidth: 120
 
-# Configure options to adhere to semistandard
+# Configure options to adhere to neostandard
 singleQuote: true
-trailingComma: 'none'
