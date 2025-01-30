@@ -1,15 +1,15 @@
-var avr = require("../lib/pioneer-avr");
+const avr = require('../lib/pioneer-avr');
 
-var options = {
+const options = {
   port: 8102,
-  host: "192.168.0.9",
-  log: true,
+  host: '192.168.0.9',
+  log: true
 };
 
-var receiver = new avr.VSX(options);
+const receiver = new avr.VSX(options);
 
-receiver.on("connect", function () {
-  console.log("receiver connected");
+receiver.on('connect', function () {
+  console.log('receiver connected');
 
   // turn on the receiver in 1 secons
   setTimeout(turnOn, 1000);
@@ -35,26 +35,26 @@ receiver.on("connect", function () {
   setTimeout(turnOn, 15000);
 });
 
-receiver.on("input", function (id, name) {
-  console.log("current input: " + id + " : " + name);
+receiver.on('input', function (id, name) {
+  console.log('current input: ' + id + ' : ' + name);
 });
 
-receiver.on("inputName", function (id, name) {
-  console.log("got input name: " + id + " : " + name);
+receiver.on('inputName', function (id, name) {
+  console.log('got input name: ' + id + ' : ' + name);
 });
 
-function turnOn() {
+function turnOn () {
   receiver.power(true);
 }
 
-function turnOff() {
+function turnOff () {
   receiver.power(false);
 }
 
-function setVolume(db) {
+function setVolume (db) {
   receiver.volume(db);
 }
 
-function setInput(input) {
+function setInput (input) {
   receiver.selectInput(input);
 }

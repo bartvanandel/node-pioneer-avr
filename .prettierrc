@@ -5,3 +5,7 @@
 # Modern displays typically show much more content in a single line easily,
 # let's use 120 as a compromise to keep the lines legible but not ultra short.
 printWidth: 120
+
+# Configure options to adhere to semistandard
+singleQuote: true
+trailingComma: 'none'
