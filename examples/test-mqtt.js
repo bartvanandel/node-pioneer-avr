@@ -1,14 +1,14 @@
-const avrMqtt = require('./avr-mqtt');
+import { AvrMqtt, Inputs } from './avr-mqtt';
 
 const options = {
-  log: true,
+  logLevel: 2,
   vsx: {
-    host: '192.168.0.9',
-    port: 23
+    host: '192.168.1.123',
+    port: 23,
   },
   mqtt: {
-    host: '192.168.0.23',
-    port: 1883
+    host: '192.168.1.200',
+    port: 1883,
   },
   mqttPaths: {
     powerIn: '/house/lounge/avr/power/in',
@@ -18,13 +18,12 @@ const options = {
     muteIn: '/house/lounge/avr/mute/in',
     muteOut: '/house/lounge/avr/mute/out',
     sourceIn: '/house/lounge/avr/source/in',
-    sourceOut: '/house/lounge/avr/source/out'
-  }
+    sourceOut: '/house/lounge/avr/source/out',
+  },
 };
 
-const avr = new avrMqtt.AvrMqtt(options);
+const avr = new AvrMqtt(options);
 
-/*
 avr.receiver.on('connect', function () {
   console.log('receiver connected');
 
@@ -36,27 +35,26 @@ avr.receiver.on('connect', function () {
     setVolume(-35);
   }, 3000);
   setTimeout(function () {
-    setInput(avrMqtt.Inputs.hdmi_2);
+    setInput(Inputs.hdmi_2);
   }, 3000);
   setTimeout(function () {
-    setInput(avrMqtt.Inputs.tv_sat);
+    setInput(Inputs.tv_sat);
   }, 5000);
   setTimeout(turnOff, 15000);
 });
 
-function turnOn () {
+function turnOn() {
   avr.receiver.power(true);
 }
 
-function turnOff () {
+function turnOff() {
   avr.receiver.power(false);
 }
 
-function setVolume (db) {
+function setVolume(db) {
   avr.receiver.volume(db);
 }
 
-function setInput (input) {
+function setInput(input) {
   avr.receiver.selectInput(input);
 }
-*/

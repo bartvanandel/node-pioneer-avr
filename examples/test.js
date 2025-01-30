@@ -1,60 +1,46 @@
-const avr = require('../lib/pioneer-avr');
+import { VSX } from '../lib/pioneer-avr';
+// import { NetworkKeys } from '../lib/constants';
 
 const options = {
   port: 8102,
-  host: '192.168.0.9',
-  log: true
+  host: '192.168.1.123',
+  logLevel: 2,
 };
 
-const receiver = new avr.VSX(options);
+const receiver = new VSX(options);
 
-receiver.on('connect', function () {
+receiver.on('connect', () => {
   console.log('receiver connected');
 
-  // turn on the receiver in 1 secons
-  setTimeout(turnOn, 1000);
+  let timeout = 1000;
 
-  setTimeout(function () {
-    setVolume(0);
-  }, 2000);
+  const addTest = (fn, duration) => {
+    setTimeout(fn, timeout);
+    timeout += duration;
+  };
 
-  setTimeout(function () {
-    setVolume(-35);
-  }, 3000);
+  addTest(() => receiver.power(true), 5000);
+  // addTest(() => receiver.volume(-45), 1000);
+  addTest(() => receiver.query(), 5000);
+  // addTest(() => receiver.changeInput(avr.Inputs.hdmi_2), 2000);
+  // addTest(() => receiver.changeInput(avr.Inputs.tv_sat), 2000);
 
-  setTimeout(function () {
-    setInput(avr.Inputs.hdmi_2);
-  }, 3000);
+  // // Set input to 'FAVORITES', select an item from the list, activate
+  // addTest(() => receiver.changeInput(45 /* favorites */), 7000);
+  // addTest(() => receiver.client.write('?GAH\r'), 100);
+  // for (let i = 0; i < 3; ++i) {
+  //   addTest(() => receiver.sendKey(NetworkKeys.DOWN), 100);
+  // }
+  // addTest(() => receiver.sendKey(NetworkKeys.ENTER), 100);
 
-  setTimeout(function () {
-    setInput(avr.Inputs.tv_sat);
-  }, 5000);
-
-  setTimeout(turnOff, 8000);
-
-  setTimeout(turnOn, 15000);
+  // addTest(() => receiver.power(false), 1000);
+  addTest(() => process.exit(), 1000);
 });
 
-receiver.on('input', function (id, name) {
-  console.log('current input: ' + id + ' : ' + name);
-});
+// receiver.on('input', (id, name, zone) => {
+//   console.log(`got ${zone} input: ${id} -> ${name}`);
+// });
 
-receiver.on('inputName', function (id, name) {
-  console.log('got input name: ' + id + ' : ' + name);
-});
-
-function turnOn () {
-  receiver.power(true);
-}
-
-function turnOff () {
-  receiver.power(false);
-}
-
-function setVolume (db) {
-  receiver.volume(db);
-}
-
-function setInput (input) {
-  receiver.selectInput(input);
-}
+// receiver.on('inputName', (id, name, zone) => {
+//   console.log(`got ${zone} input name: ${id} -> ${name}`);
+// });
